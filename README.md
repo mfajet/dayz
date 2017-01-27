@@ -1,3 +1,6 @@
+
+##Forked from Nathan Stitt
+Current changes: each event now accepts a clickable attribute which indicates whether the event will appear clickable in the display.
 ## A day/week/monthly calendar component for React
 
 [![Build Status](https://travis-ci.org/nathanstitt/dayz.svg?branch=master)](https://travis-ci.org/nathanstitt/dayz)
