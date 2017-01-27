@@ -62,6 +62,10 @@ class EventLayout {
         return (this.layout.displayingAs() !== 'month' && this.event.get('resizable'));
     }
 
+    isClickable(){
+        return (this.event.attributes.clickable == true);
+    }
+
     key() {
         return this.displayRange.start.format('YYYYMMDD') + this.event.key;
     }
@@ -76,6 +80,7 @@ class EventLayout {
         if (this.stack)         classes.push(`stack-${this.stack}`);
         if (this.isEditing())   classes.push('is-editing');
         if (this.isResizable()) classes.push('is-resizable');
+        if (this.isClickable()) classes.push('is-clickable');
         return classes.join(' ');
     }
 }

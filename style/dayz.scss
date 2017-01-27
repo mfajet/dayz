@@ -217,6 +217,12 @@ $dayz-event-text-colors: (
             }
         }
 
+        &.is-clickable:hover {
+            cursor: pointer;
+            cursor: hand;
+            filter: brightness(85%);
+        }
+
 
         &.is-resizable {
 
