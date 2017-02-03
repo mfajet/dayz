@@ -48,7 +48,19 @@ $dayz-event-text-colors: (
     flex-direction: column;
     align-items:    stretch;
 
-
+    .dayz-nav{
+        display: flex;
+        .dayz-next{
+            right: 0;
+        }
+        .dayz-prev{
+            left: 0;
+        }
+        .nav-title{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
     .x-labels {
         height: $dayz-event-height;
         display: flex;

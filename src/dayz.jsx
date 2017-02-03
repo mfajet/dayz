@@ -4,6 +4,7 @@ const Layout    = require('./data/layout');
 const Day       = require('./day');
 const XLabels   = require('./x-labels');
 const YLabels   = require('./y-labels');
+const Nav = require('./nav');
 
 require('moment-range'); // needed in order to for range to install itself
 
@@ -27,6 +28,60 @@ const Dayz = React.createClass({
         return {
             display:      'month'
         };
+    },
+
+    next(){
+        var date = this.props.date;
+        var props = this.props;
+        if(props.display == "day"){
+            date.add(1,'days');
+        }else if (props.display=="month"){
+            date.add(1,'months');
+        }else{
+            date.add(7,'days');
+        }
+        const range = moment.range( date.clone().startOf( props.display ),
+                                    date.clone().endOf( props.display ) );
+        if (props.events) {
+            this.detachEventBindings();
+            props.events.on('change', this.onEventsChange, this);
+        }
+        if ( props.display === 'month' ) {
+            range.start.subtract(range.start.weekday(), 'days');
+            range.end.add(6 - range.end.weekday(), 'days');
+        }
+
+        const layout = new Layout({...props, range});
+
+        this.setState({ range, layout });
+    },
+
+    prev(){
+        var date = this.props.date;
+        var props = this.props;
+
+        if(props.display == "day"){
+            date.subtract(1,'days');
+        }else if (props.display=="month"){
+            date.subtract(1,'months');
+        }else{
+            date.subtract(7,'days');
+        }
+        const range = moment.range( date.clone().startOf( props.display ),
+                                    date.clone().endOf( props.display ) );
+        if (props.events) {
+            this.detachEventBindings();
+            props.events.on('change', this.onEventsChange, this);
+        }
+        if ( props.display === 'month' ) {
+            range.start.subtract(range.start.weekday(), 'days');
+            range.end.add(6 - range.end.weekday(), 'days');
+        }
+
+        const layout = new Layout({...props, range});
+
+        this.setState({ range, layout });
+
     },
 
     componentWillMount() {
@@ -84,6 +139,7 @@ const Dayz = React.createClass({
         );
         return (
             <div className={classes.join(' ')}>
+                <Nav date={this.props.date} next={this.next} prev={this.prev} />
                 <XLabels date={this.props.date} display={this.props.display} />
                 <div className="body">
                     <YLabels
