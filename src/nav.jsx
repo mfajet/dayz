@@ -8,9 +8,9 @@ const Nav = React.createClass({
 
         return (
             <div className="dayz-nav">
-                <button className="dayz-prev" onClick={this.props.prev}>Previous</button>
+                <button className="dayz-prev" onClick={this.props.prev}>&#8249;</button>
                 <h1 className="nav-title">{moment.months(this.props.date.get('month'))} {this.props.date.get('year')}</h1>
-                <button className="days-next" onClick={this.props.next}>Next</button>
+                <button className="dayz-next" onClick={this.props.next}>&#8250;</button>
             </div>
         );
 

@@ -50,15 +50,26 @@ $dayz-event-text-colors: (
 
     .dayz-nav{
         display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
         .dayz-next{
             right: 0;
+            font-size: 1.5em;
+            height: 1.5em;
         }
         .dayz-prev{
             left: 0;
+            font-size: 1.5em;
+            height: 1.5em;
+
         }
         .nav-title{
             margin-left: auto;
             margin-right: auto;
+            font-size: 1.5em;
         }
     }
     .x-labels {
