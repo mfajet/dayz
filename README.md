@@ -1,5 +1,5 @@
 
-##Forked from Nathan Stitt
+## Forked from Nathan Stitt
 Current changes:
 Each event now accepts a clickable attribute which indicates whether the event will appear clickable in the display.
 Display now shows current month and year along with buttons that allow people to navigate.
