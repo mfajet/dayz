@@ -57,14 +57,19 @@ $dayz-event-text-colors: (
         width: 40%;
         .dayz-next{
             right: 0;
-            font-size: 1.5em;
-            height: 1.5em;
+            font-size: 2em;
+            height: 2em;
+            background-color: transparent;
+            border-color: transparent;
+            color:white;
         }
         .dayz-prev{
             left: 0;
-            font-size: 1.5em;
-            height: 1.5em;
-
+            font-size: 2em;
+            height: 2em;
+            background-color: transparent;
+            border-color: transparent;
+            color:white;
         }
         .nav-title{
             margin-left: auto;
