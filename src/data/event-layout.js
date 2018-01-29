@@ -73,7 +73,8 @@ class EventLayout {
         this.isResizing = val;
     }
     classNames() {
-        const classes = ['event', `span-${this.span}`, `color-${this.event.colorIndex()}`];
+        const classes = ['event', `span-${this.span}`];
+        if (this.event.colorIndex()) classes.push(`color-${this.event.colorIndex()}`);
         if (this.isResizing)    classes.push('is-resizing');
         if (this.startsBefore)  classes.push('is-continuation');
         if (this.endsAfter)     classes.push('is-continued');
@@ -81,6 +82,7 @@ class EventLayout {
         if (this.isEditing())   classes.push('is-editing');
         if (this.isResizable()) classes.push('is-resizable');
         if (this.isClickable()) classes.push('is-clickable');
+        if (this.event.colorClass()) classes.push(this.event.colorClass());
         return classes.join(' ');
     }
 }

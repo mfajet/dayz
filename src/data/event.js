@@ -98,7 +98,9 @@ class Event {
     colorIndex() {
         return this.attributes.colorIndex;
     }
-
+    colorClass() {
+        return this.attributes.colorClass; 
+    }
     remove() {
         this.collection.remove(this);
         this.isDeleted = true;
